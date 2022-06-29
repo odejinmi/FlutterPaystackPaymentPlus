@@ -220,6 +220,7 @@ abstract class BaseTransactionManager {
   Future<CheckoutResponse> handlePinInput(String pin) {
     throw UnsupportedError("Pin Input not supported for ${checkoutMethod()}");
   }
+
   postInitiate();
 
   Future<CheckoutResponse> handleBirthdayInput(
