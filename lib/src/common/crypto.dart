@@ -23,7 +23,7 @@ class Cryptom {
     /// We would have to use PEM Cert Type and the convert it from a PEM to an RSA PUBLIC KEY through basic_utils
     ///
     var pem =
-        '-----BEGIN RSA PUBLIC KEY-----\n$publickey\n-----END RSA PUBLIC KEY-----';
+        '-----BEGIN RSA PUBLIC KEY-----\n$publicKey\n-----END RSA PUBLIC KEY-----';
     var public = CryptoUtils.rsaPublicKeyFromPem(pem);
 
     /// Initalizing Cipher

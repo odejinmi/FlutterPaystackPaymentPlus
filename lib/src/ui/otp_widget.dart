@@ -41,7 +41,7 @@ class _OtpWidgetState extends BaseState<OtpWidget> {
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     fontWeight: FontWeight.w500,
-                    color: Colors.black87,
+                    color: Colors.grey,
                     fontSize: 15.0,
                   ),
                 ),

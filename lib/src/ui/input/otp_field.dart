@@ -10,7 +10,7 @@ class OtpField extends TextFormField {
           textAlign: TextAlign.center,
           style: const TextStyle(
             fontWeight: FontWeight.bold,
-            color: Colors.black87,
+            color: Colors.grey,
             fontSize: 25.0,
           ),
           autofocus: true,

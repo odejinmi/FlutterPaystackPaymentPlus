@@ -5,8 +5,11 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_paystack_payment_plus/flutter_paystack_payment_plus.dart';
 import 'package:http/http.dart' as http;
+
+import 'themeclass.dart';
 
 // To get started quickly, change this to your heroku deployment of
 // https://github.com/PaystackHQ/sample-charge-card-backend
@@ -22,15 +25,37 @@ const String appName = 'Paystack Example';
 
 void main() => runApp(const MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
+  State<MyApp> createState() => _MyAppState();
+  static _MyAppState of(BuildContext context) =>
+      context.findAncestorStateOfType<_MyAppState>()!;
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: appName,
+      themeMode: _themeMode, // 2) ← ← ← use "state" field here //////////////
+      theme: ThemeClass.lightTheme,
+      darkTheme: ThemeClass.darkTheme,
       home: HomePage(),
     );
+  }
+
+  /// 1) our themeMode "state" field
+  ThemeMode _themeMode = ThemeMode.system;
+
+  /// 3) Call this to change theme from any context using "of" accessor
+  /// e.g.:
+  /// MyApp.of(context).changeTheme(ThemeMode.dark);
+  void changeTheme(ThemeMode themeMode) {
+    setState(() {
+      _themeMode = themeMode;
+    });
   }
 }
 
@@ -60,10 +85,13 @@ class _HomePageState extends State<HomePage> {
   int? _expiryMonth;
   int? _expiryYear;
 
+  bool check = false;
+
   @override
   void initState() {
     plugin.initialize(
         publicKey: "pk_test_aac3b1d49398042475190e6674231c83bd48ba00");
+    check = isDarkMode;
     super.initState();
   }
 
@@ -234,7 +262,24 @@ class _HomePageState extends State<HomePage> {
                                       ),
                                     ),
                                   ],
-                                )
+                                ),
+                                const SizedBox(
+                                  height: 40.0,
+                                ),
+                                Checkbox(
+                                    value: check,
+                                    onChanged: (bool? value) {
+                                      setState(() {
+                                        check = !check;
+                                      });
+                                      if (!check) {
+                                        MyApp.of(context)
+                                            .changeTheme(ThemeMode.light);
+                                      } else {
+                                        MyApp.of(context)
+                                            .changeTheme(ThemeMode.dark);
+                                      }
+                                    }),
                               ],
                             );
                     },
@@ -276,7 +321,7 @@ class _HomePageState extends State<HomePage> {
         context,
         method: _method,
         charge: charge,
-        fullscreen: false,
+        fullscreen: true,
         logo: const MyLogo(),
       );
       log('Response = $response');
@@ -517,3 +562,8 @@ class MyLogo extends StatelessWidget {
 const Color green = Color(0xFF3db76d);
 const Color lightBlue = Color(0xFF34a5db);
 const Color navyBlue = Color(0xFF031b33);
+
+bool get isDarkMode {
+  var brightness = SchedulerBinding.instance.window.platformBrightness;
+  return brightness == Brightness.dark;
+}

@@ -22,7 +22,7 @@ class _PinFieldState extends State<PinField> {
         textAlign: TextAlign.center,
         style: const TextStyle(
           fontWeight: FontWeight.bold,
-          color: Colors.black87,
+          color: Colors.grey,
           fontSize: 25.0,
           letterSpacing: 15.0,
         ),

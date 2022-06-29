@@ -1,8 +1,8 @@
 import 'dart:io';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_paystack_payment_plus/src/ui/base_widget.dart';
 import 'package:flutter_paystack_payment_plus/src/ui/buttons.dart';
 import 'package:flutter_paystack_payment_plus/src/ui/custom_dialog.dart';
@@ -45,7 +45,7 @@ class _BirthdayWidgetState extends BaseState<BirthdayWidget> {
               textAlign: TextAlign.center,
               style: const TextStyle(
                 fontWeight: FontWeight.w500,
-                color: Colors.black87,
+                // color: Colors.black87,
                 fontSize: 15.0,
               ),
             ),

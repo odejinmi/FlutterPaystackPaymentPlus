@@ -52,7 +52,9 @@ class BaseTextField extends StatelessWidget {
             borderSide: BorderSide(
                 color: Theme.of(context).colorScheme.secondary, width: 1.0)),
         hintText: hintText,
+        hintStyle: const TextStyle(color: Colors.grey),
       ),
+      style: const TextStyle(color: Colors.grey),
     );
   }
 }

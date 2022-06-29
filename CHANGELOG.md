@@ -1,3 +1,9 @@
 ## 0.0.1
+First Release
 
-* TODO: Describe initial release.
+## 0.0.2
+Fixed image Issue
+
+## 0.0.3
+Dark mode fixed
+more card image added

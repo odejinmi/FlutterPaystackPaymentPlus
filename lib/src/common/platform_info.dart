@@ -24,33 +24,27 @@ class PlatformInfo {
 
     final platform = platforminfo.Platform.instance.operatingSystem;
     var mobilephoneinfo;
-    deviceInfo() async {
-      if (!kIsWeb) {
-        Platform.isIOS
-            ? mobilephoneinfo = await DeviceInfoPlugin().iosInfo
-            : Platform.isMacOS
-                ? mobilephoneinfo = await DeviceInfoPlugin().macOsInfo
-                : Platform.isWindows
-                    ? mobilephoneinfo = await DeviceInfoPlugin().windowsInfo
-                    : Platform.isLinux
-                        ? mobilephoneinfo = await DeviceInfoPlugin().linuxInfo
-                        : Platform.isAndroid
-                            ? mobilephoneinfo =
-                                await DeviceInfoPlugin().androidInfo
-                            : mobilephoneinfo =
-                                await DeviceInfoPlugin().deviceInfo;
-      }
+    if (!kIsWeb) {
+      Platform.isIOS
+          ? mobilephoneinfo = await DeviceInfoPlugin().iosInfo
+          : Platform.isMacOS
+              ? mobilephoneinfo = await DeviceInfoPlugin().macOsInfo
+              : Platform.isWindows
+                  ? mobilephoneinfo = await DeviceInfoPlugin().windowsInfo
+                  : Platform.isLinux
+                      ? mobilephoneinfo = await DeviceInfoPlugin().linuxInfo
+                      : Platform.isAndroid
+                          ? mobilephoneinfo =
+                              await DeviceInfoPlugin().androidInfo
+                          : mobilephoneinfo =
+                              await DeviceInfoPlugin().deviceInfo;
     }
 
     String pluginVersion = packageInfo.version;
     // : Platform.instance.isIOS
     //     ? DeviceInfoPlugin().iosInfo
     //     : "NOT MOBILE";
-    String deviceId = !kIsWeb
-        ? (Platform.isIOS || Platform.isAndroid)
-            ? mobilephoneinfo.toString()
-            : "FLUTTER_CLIENT"
-        : "WEB";
+    String deviceId = !kIsWeb ? mobilephoneinfo.toString() : "WEB";
     String userAgent = "${platform}_Paystack_$pluginVersion";
     return PlatformInfo._(
       userAgent: userAgent,
