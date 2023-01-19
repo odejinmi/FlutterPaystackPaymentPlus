@@ -7,3 +7,6 @@ Fixed image Issue
 ## 0.0.3
 Dark mode fixed
 more card image added
+
+## 0.0.4
+all packages updated
