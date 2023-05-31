@@ -10,3 +10,6 @@ more card image added
 
 ## 0.0.4
 all packages updated
+
+## 0.0.5
+all packages updated

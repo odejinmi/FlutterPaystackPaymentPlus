@@ -54,12 +54,10 @@ class PlatformInfo {
   }
 
   PlatformInfo._({
-    required String userAgent,
-    required String paystackBuild,
-    required String deviceId,
-  })  : userAgent = userAgent,
-        paystackBuild = paystackBuild,
-        deviceId = deviceId;
+    required this.userAgent,
+    required this.paystackBuild,
+    required this.deviceId,
+  });
 
   @override
   String toString() {

@@ -11,10 +11,10 @@ class OtpWidget extends StatefulWidget {
   const OtpWidget({Key? key, required this.message}) : super(key: key);
 
   @override
-  _OtpWidgetState createState() => _OtpWidgetState();
+  OtpWidgetState createState() => OtpWidgetState();
 }
 
-class _OtpWidgetState extends BaseState<OtpWidget> {
+class OtpWidgetState extends BaseState<OtpWidget> {
   final _formKey = GlobalKey<FormState>();
   var _autoValidate = AutovalidateMode.disabled;
   String? _otp;

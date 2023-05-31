@@ -11,12 +11,12 @@ class SuccessfulWidget extends StatefulWidget {
       : super(key: key);
 
   @override
-  _SuccessfulWidgetState createState() {
-    return _SuccessfulWidgetState();
+  SuccessfulWidgetState createState() {
+    return SuccessfulWidgetState();
   }
 }
 
-class _SuccessfulWidgetState extends State<SuccessfulWidget>
+class SuccessfulWidgetState extends State<SuccessfulWidget>
     with TickerProviderStateMixin {
   final sizedBox = const SizedBox(height: 20.0);
   late AnimationController _mainController;

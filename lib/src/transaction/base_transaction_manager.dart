@@ -167,7 +167,7 @@ abstract class BaseTransactionManager {
     String? pin = await showDialog<String>(
         barrierDismissible: false,
         context: context,
-        builder: (BuildContext context) => PinWidget());
+        builder: (BuildContext context) => const PinWidget());
 
     if (pin != null && pin.length == 4) {
       return handlePinInput(pin);

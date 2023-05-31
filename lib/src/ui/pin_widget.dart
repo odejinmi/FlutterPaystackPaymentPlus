@@ -9,10 +9,10 @@ class PinWidget extends StatefulWidget {
   const PinWidget({Key? key}) : super(key: key);
 
   @override
-  _PinWidgetState createState() => _PinWidgetState();
+  PinWidgetState createState() => PinWidgetState();
 }
 
-class _PinWidgetState extends BaseState<PinWidget> {
+class PinWidgetState extends BaseState<PinWidget> {
   var heightBox = const SizedBox(height: 20.0);
 
   @override

@@ -16,10 +16,10 @@ class BirthdayWidget extends StatefulWidget {
   const BirthdayWidget({Key? key, required this.message}) : super(key: key);
 
   @override
-  _BirthdayWidgetState createState() => _BirthdayWidgetState();
+  BirthdayWidgetState createState() => BirthdayWidgetState();
 }
 
-class _BirthdayWidgetState extends BaseState<BirthdayWidget> {
+class BirthdayWidgetState extends BaseState<BirthdayWidget> {
   final _heightBox = const SizedBox(height: 20.0);
   DateTime? _pickedDate;
 

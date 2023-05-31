@@ -7,9 +7,9 @@ Future<String?> value() async {
   //   return "";
   // }
   // response
-  if (response!.isNotEmpty) {
+  // if (response!.isNotEmpty) {
     return response;
-  }
+  // }
 }
 
 // /*  */
@@ -22,9 +22,9 @@ class WebView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    view.WebViewController? _controller;
+    view.WebViewController? controller;
 
-    _controller = view.WebViewController()
+    controller = view.WebViewController()
       ..setJavaScriptMode(view.JavaScriptMode.unrestricted)
       ..setBackgroundColor(const Color(0x00000000))
       ..setNavigationDelegate(
@@ -34,7 +34,7 @@ class WebView extends StatelessWidget {
           },
           onPageStarted: (String url) {},
           onPageFinished: (String url) {
-            _controller!.runJavaScriptReturningResult(
+            controller!.runJavaScriptReturningResult(
                 "document.getElementById('return').innerText")
                 .then((value) async {
               // if (value == "null ") {
@@ -58,19 +58,6 @@ class WebView extends StatelessWidget {
       )
       ..loadRequest(Uri.parse(url));
 
-    void readResponse() async {
-      // setState(() {
-      _controller!.runJavaScriptReturningResult(
-              "document.getElementById('return').innerText")
-          .then((value) async {
-        // if (value == "null ") {
-        //   response =
-        //       "{\"status\":\"requery\",\"message\":\"Reaffirm Transaction Status on Server\"}";
-        // } else {
-        response = response!.length > 7 ? response : value.toString();
-        // }
-      });
-    }
 // value contains the html data of page as string
 
     // );
@@ -86,6 +73,6 @@ class WebView extends StatelessWidget {
     //     readResponse();
     //   },
     // );
-    return view.WebViewWidget(controller: _controller);
+    return view.WebViewWidget(controller: controller);
   }
 }
