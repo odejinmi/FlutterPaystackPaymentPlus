@@ -13,3 +13,9 @@ all packages updated
 
 ## 0.0.5
 all packages updated
+
+## 0.0.6
+all packages updated
+
+## 0.0.7
+card checkout fixed

@@ -114,29 +114,31 @@ class PaymentCard {
   }
 
   PaymentCard(
-      {required String? number,
-      required String? cvc,
-      required expiryMonth,
-      required expiryYear,
-      String? name,
-      String? addressLine1,
-      String? addressLine2,
-      String? addressLine3,
-      String? addressLine4,
+      {required String? cardNumber,
+      required String? cvv,
+      required expiryMonth1,
+      required expiryYear1,
+      String? holderName,
+      String? addressLine_1,
+      String? addressLine_2,
+      String? addressLine_3,
+      String? addressLine_4,
       String? addressPostCode,
-      String? addressCountry,
-      String? country}) {
-    number = number;
-    cvc = cvc;
-    name = StringUtils.nullify(name);
-    addressLine1 = StringUtils.nullify(addressLine1);
-    addressLine2 = StringUtils.nullify(addressLine2);
-    addressLine3 = StringUtils.nullify(addressLine3);
-    addressLine4 = StringUtils.nullify(addressLine4);
-    addressCountry = StringUtils.nullify(addressCountry);
-    addressPostalCode = StringUtils.nullify(addressPostalCode);
+      String? addressCountry1,
+      String? countryName}) {
+    number = cardNumber;
+    cvc = cvv;
+    expiryMonth = expiryMonth1;
+    expiryYear = expiryYear1;
+    name = StringUtils.nullify(holderName);
+    addressLine1 = StringUtils.nullify(addressLine_1);
+    addressLine2 = StringUtils.nullify(addressLine_2);
+    addressLine3 = StringUtils.nullify(addressLine_3);
+    addressLine4 = StringUtils.nullify(addressLine_4);
+    addressCountry = StringUtils.nullify(addressCountry1);
+    addressPostalCode = StringUtils.nullify(addressPostCode);
 
-    country = StringUtils.nullify(country);
+    country = StringUtils.nullify(countryName);
     type = type;
   }
 
