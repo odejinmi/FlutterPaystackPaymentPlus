@@ -19,3 +19,6 @@ all packages updated
 
 ## 0.0.7
 card checkout fixed
+
+## 0.0.8
+dependency upgrade
