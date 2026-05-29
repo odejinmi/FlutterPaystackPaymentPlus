@@ -22,3 +22,6 @@ card checkout fixed
 
 ## 0.0.8
 dependency upgrade
+
+## 0.0.9
+dependency upgrade
